@@ -1,9 +1,9 @@
 package com.kmejka.authserver.config;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
 
-import com.sun.tools.javac.util.List;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -53,7 +53,7 @@ public class FacebookUserAuthenticationService implements ResourceServerTokenSer
         final String email = getUserEmail(userProfile);
         final String userId = getUserId(email);
 
-        final Collection<SimpleGrantedAuthority> authorities = List.of(
+        final Collection<SimpleGrantedAuthority> authorities = Arrays.asList(
                 new SimpleGrantedAuthority("ROLE_USER"),
                 new SimpleGrantedAuthority("ROLE_FACEBOOK_USER"));
 
